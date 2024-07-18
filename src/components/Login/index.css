@@ -1,0 +1,123 @@
+* {
+    font-family: Roboto;
+  }
+  
+  body {
+    margin: 0px;
+  }
+  
+  .bgLogin {
+    background-color: #000000;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .login {
+    background-color: #272727;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    padding: 30px;
+  }
+  
+  .loginLogo {
+    height: 25px;
+    width: 85px;
+    margin-bottom: 20px;
+  }
+  
+  .inputCont {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .labelPara {
+    color: #f1f5f9;
+    font-size: 11px;
+    font-weight: bold;
+    margin: 0px;
+    margin-bottom: 5px;
+  }
+  
+  .inputBox {
+    cursor: pointer;
+    outline: none;
+    padding: 10px;
+    border: 0.5px solid #7e858e;
+    background-color: transparent;
+    color: #f1f5f9;
+    margin: 0px;
+    border-radius: 2px;
+    margin-bottom: 15px;
+  }
+  
+  .loginBtn {
+    color: white;
+    background-color: #6366f1;
+    height: 40px;
+    width: 100%;
+    border: 0px;
+    border-radius: 8px;
+    cursor: pointer;
+    outline: none;
+    margin: 0px;
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 10px;
+    transition: all 0.08s linear;
+  }
+  
+  .loginBtn:hover {
+    background-color: #6366f1;
+  }
+  
+  .loginBtn:active {
+    transform: translateY(5px);
+  }
+  
+  .errorLogin {
+    color: #ff0b37;
+    font-size: 9px;
+    margin: 0px;
+    align-self: flex-start;
+    margin-top: 3px;
+  }
+  
+  @media (min-width: 768px) {
+    .login {
+      width: 50%;
+    }
+  
+    .loginLogo {
+      height: 45px;
+      width: 150px;
+    }
+  
+    .labelPara {
+      font-size: 15px;
+      margin-bottom: 8px;
+    }
+  
+    .inputBox {
+      height: 50px;
+    }
+  
+    .errorLogin {
+      font-size: 15px;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .login {
+      width: 40%;
+    }
+  }
+  

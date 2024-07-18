@@ -1,0 +1,149 @@
+* {
+    font-family: Roboto;
+  }
+  
+  body {
+    margin: 0px;
+  }
+  
+  .bgHeader {
+    background-color: #272727;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    height: 10vh;
+    border: 1px solid #272727;
+  }
+  
+  .headerSm {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .headerLogoBtn {
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
+    border: 0px;
+    transition: all 0.08s linear;
+  }
+  
+  .headerLogoBtn:hover {
+    background-color: transparent;
+  }
+  
+  .headerLogoBtn:active {
+    transform: translateY(5px);
+  }
+  
+  .headerLogo {
+    height: 30px;
+    width: 95px;
+  }
+  
+  .smTabsUl {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    list-style-type: none;
+    padding-left: 0px;
+  }
+  
+  .headerLinks {
+    text-decoration: none;
+  }
+  
+  .smTabLi {
+    margin: 10px;
+  }
+  
+  .smIcon {
+    font-size: 21px;
+    color: white;
+    height: 21px;
+    width: 21px;
+  }
+  
+  .smLogoutBtn {
+    background-color: transparent;
+    border: 0px;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.08s linear;
+  }
+  
+  .smLogoutBtn:hover {
+    background-color: transparent;
+  }
+  
+  .smLogoutBtn:active {
+    transform: translateX(5px);
+  }
+  
+  .headerLg {
+    display: none;
+  }
+  
+  @media (min-width: 768px) {
+    .headerSm {
+      display: none;
+    }
+  
+    .headerLg {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  
+    .headerLogo {
+      height: 45px;
+      width: 150px;
+    }
+  
+    .bgHeader {
+      height: 8vh;
+    }
+  
+    .lgTabsUl {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      list-style-type: none;
+      padding-left: 0px;
+    }
+  
+    .lgTabLi {
+      margin: 10px;
+      color: white;
+      font-weight: bold;
+      font-size: 25px;
+    }
+  
+    .lgLogoutBtn {
+      background-color: #6366f1;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      outline: none;
+      border: 0px;
+      padding: 10px;
+      height: 40px;
+      width: 125px;
+      border-radius: 8px;
+      transition: all 0.08s linear;
+    }
+  
+    .lgLogoutBtn:hover {
+      background-color: #6366f1;
+    }
+  
+    .lgLogoutBtn:active {
+      transform: translateY(5px);
+    }
+  }
+  
