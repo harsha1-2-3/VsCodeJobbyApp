@@ -1,7 +1,11 @@
 import {Component} from 'react'
 import {Link} from 'react-router-dom'
+import { FaSearch } from "react-icons/fa";
+import { FaStar } from "react-icons/fa";
+import { IoBagHandle } from "react-icons/io5";
+import { FaLocationDot } from "react-icons/fa6";
 import Cookies from 'js-cookie'
-import Loader from 'react-loader-spinner'
+import {ThreeDots} from 'react-loader-spinner'
 import Header from '../Header'
 import './index.css'
 
@@ -182,7 +186,6 @@ class Jobs extends Component {
         Authorization: `Bearer ${jwtToken}`,
       },
     }
-    console.log(activeEmployeeType)
     const response = await fetch(url, options)
     if (response.ok === true) {
       const data = await response.json()
@@ -215,7 +218,7 @@ class Jobs extends Component {
 
   renderLoading = () => (
     <div className="loader-container" data-testid="loader">
-      <Loader type="ThreeDots" color="#ffffff" height="50" width="50" />
+      <ThreeDots color="#ffffff" height="50" width="50" />
     </div>
   )
 
@@ -286,11 +289,7 @@ class Jobs extends Component {
                       <div className="nameRatingsCont">
                         <h1 className="jobName">{eachJob.title}</h1>
                         <div className="ratingCont">
-                          <img
-                            className="ratingStar"
-                            alt="rating star"
-                            src="https://img.freepik.com/free-vector/3d-metal-star-isolated_1308-117760.jpg"
-                          />
+                        <FaStar className="ratingStar" />
                           <p className="rating">{eachJob.rating}</p>
                         </div>
                       </div>
@@ -298,19 +297,13 @@ class Jobs extends Component {
                     <div className="locIntSalCont">
                       <div className="locIntCont">
                         <div className="locInt">
-                          <img
-                            className="locIntIcon"
-                            alt="loaction dot"
-                            src="https://t3.ftcdn.net/jpg/05/11/35/32/240_F_511353245_j5F7qWnhZu6VNNGQFbYNhsjWCwxs1WQ4.jpg"
-                          />
+                        <FaLocationDot className='locIntIcon'/>
+
                           <p className="locIntPara">{eachJob.location}</p>
                         </div>
                         <div className="locInt">
-                          <img
-                            src="https://png.pngtree.com/png-vector/20191026/ourmid/pngtree-work-bag-icon-png-image_1871545.jpg"
-                            className="locIntIcon"
-                            alt="employee bag"
-                          />
+                        <IoBagHandle className='locIntIcon'/>
+
                           <p className="locIntPara">{eachJob.employmentType}</p>
                         </div>
                       </div>
@@ -409,11 +402,7 @@ class Jobs extends Component {
                 type="button"
                 className="jobsSearchBtnSm"
               >
-                <img
-                  alt="search icon"
-                  src="https://png.pngtree.com/png-vector/20190420/ourmid/pngtree-vector-search-icon-png-image_966647.jpg"
-                  className="jobsSearchIconSm"
-                />
+              <FaSearch className='jobsSearchIconSm' />
               </button>
             </div>
             {this.renderAllProfilePages()}

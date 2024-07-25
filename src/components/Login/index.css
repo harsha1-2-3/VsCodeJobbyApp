@@ -48,7 +48,7 @@
   }
   
   .inputBox {
-    cursor: pointer;
+    cursor: progress;
     outline: none;
     padding: 10px;
     border: 0.5px solid #7e858e;

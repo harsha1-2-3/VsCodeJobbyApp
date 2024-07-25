@@ -1,13 +1,17 @@
 import { Link, useNavigate } from 'react-router-dom';
+import { FaHome } from "react-icons/fa";
+import { IoBag } from "react-icons/io5";
+import { LuLogOut } from "react-icons/lu";
 import Cookies from 'js-cookie';
 import './index.css';
 
 const Header = () => {
-  const navigate = useNavigate(); // Use useNavigate hook for navigation
+  const navigate = useNavigate(); 
 
   const onClickLogout = () => {
     Cookies.remove('jwt_token');
-    navigate('/login'); // Use navigate to redirect after logout
+    navigate('/login');
+    console.log("Logged Out")
   };
 
   return (
@@ -23,20 +27,13 @@ const Header = () => {
         <ul className="smTabsUl">
           <li className="smTabLi">
             <Link className="headerLinks" to="/">
-              <img
-                className="smIcon"
-                alt="home logo"
-                src="https://png.pngtree.com/element_our/sm/20180516/sm_5afc76eed0142.jpg"
-              />
+
+            <FaHome className='smIcon' />
             </Link>
           </li>
           <li className="smTabLi">
             <Link className="headerLinks" to="/jobs">
-              <img
-                src="https://png.pngtree.com/png-vector/20191026/ourmid/pngtree-work-bag-icon-png-image_1871545.jpg"
-                className="locIntIcon"
-                alt="employee bag"
-              />
+              <IoBag className='smIcon' />
             </Link>
           </li>
           <li className="smTabLi">
@@ -45,11 +42,7 @@ const Header = () => {
               type="button"
               className="smLogoutBtn"
             >
-              <img
-                className="smIcon"
-                alt="logout"
-                src="https://www.shutterstock.com/image-vector/logout-icon-design-isolated-on-260nw-2014215185.jpg"
-              />
+            <LuLogOut className='smIcon' />
             </button>
           </li>
         </ul>
