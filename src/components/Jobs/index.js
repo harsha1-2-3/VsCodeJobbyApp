@@ -178,7 +178,7 @@ class Jobs extends Component {
       activeEmployeeType,
       activeLocation,
     } = this.state
-    const url = `https://apis.ccbp.in/jobs?employment_type=${activeEmployeeType}&minimum_package=${activeSalaryRange}&location=${activeLocation}&search=${searchInput}`
+    const url = `https://apis.ccbp.in/jobs?employment_type=PARTTIME,FULLTIME&minimum_package=${activeSalaryRange}&location=HYDERABAD,CHENNAI&search=${searchInput}`
     const jwtToken = Cookies.get('jwt_token')
     const options = {
       method: 'GET',
