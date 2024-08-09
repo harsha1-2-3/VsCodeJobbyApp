@@ -84,7 +84,6 @@ class Jobs extends Component {
     jobsList: [],
     profileApiStatus: apiStatusConstants.initial,
     jobsApiStatus: apiStatusConstants.initial,
-    checkedItems: [],
     activeLocation: [],
   }
 
