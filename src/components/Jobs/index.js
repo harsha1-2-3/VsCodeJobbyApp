@@ -387,6 +387,12 @@ class Jobs extends Component {
     }
   }
 
+onEnterSearchInput = event => {
+    if (event.key === 'Enter') {
+      this.getJobsList()
+    }
+}
+
   render() {
     const {searchInput} = this.state
 
@@ -402,6 +408,7 @@ class Jobs extends Component {
                 className="jobsInputBoxSm"
                 placeholder="Search..."
                 type="search"
+                onKeyDown={this.onEnterSearchInput}
               />
               <button
                 onClick={this.clickedSearch}
