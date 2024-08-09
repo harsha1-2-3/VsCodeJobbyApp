@@ -84,7 +84,7 @@ class Jobs extends Component {
     jobsList: [],
     profileApiStatus: apiStatusConstants.initial,
     jobsApiStatus: apiStatusConstants.initial,
-    activeLocation: [],
+    activeLocation: '',
   }
 
   componentDidMount() {
@@ -116,19 +116,23 @@ class Jobs extends Component {
   }
 
   onChangeLocation = event => {
-    const { activeLocation } = this.state;
-    const gotType = event.target.value;
+    this.setState({activeLocation: event.target.value}, this.getJobsList)
+  }
+
+//  onChangeLocation = event => {
+   // const { activeLocation } = this.state;
+  //  const gotType = event.target.value;
 
     // Check if the type is already present in the array
-    const isTypeActive = activeLocation.includes(gotType);
+ //   const isTypeActive = activeLocation.includes(gotType);
 
-    this.setState(
-        prevState => ({
-            activeLocation: isTypeActive
-                ? prevState.activeLocation.filter(type => type !== gotType)
-                : [...prevState.activeLocation, gotType]
-        }),this.getJobsList);
-};
+   // this.setState(
+   //     prevState => ({
+//            activeLocation: isTypeActive
+  //              ? prevState.activeLocation.filter(type => type !== gotType)
+    //            : [...prevState.activeLocation, gotType]
+   //     }),this.getJobsList);
+//};
 
 
   clickedSearch = () => {
@@ -180,8 +184,8 @@ class Jobs extends Component {
       activeLocation,
     } = this.state 
     const employeeTypeString=activeEmployeeType.join(',')
-    const locationString=activeLocation.join(',')
-    const url = `https://apis.ccbp.in/jobs?employment_type=${employeeTypeString}&minimum_package=${activeSalaryRange}&location=${locationString}&search=${searchInput}`
+   // const locationString=activeLocation.join(',')
+    const url = `https://apis.ccbp.in/jobs?employment_type=${employeeTypeString}&minimum_package=${activeSalaryRange}&location=${activeLocation}&search=${searchInput}`
     const jwtToken = Cookies.get('jwt_token')
     const options = {
       method: 'GET',
@@ -463,9 +467,9 @@ class Jobs extends Component {
                   <li key={each.locationId} className="filterLi">
                     <input
                       onChange={this.onChangeLocation}
-                      id={each.locationId}
+                      id={`${each.locationId}`}
                       className="filterInput"
-                      type="checkbox"
+                      type="radio"
                       value={each.locationId}
                     />
                     <label className="filterLabel" htmlFor={each.locationId}>
