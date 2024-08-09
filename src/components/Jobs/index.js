@@ -98,37 +98,39 @@ class Jobs extends Component {
   }
 
   onChangeEmploymentType = event => {
-    const {checkedItems} = this.state
-    let updatedEmployeeType
-    if (
-      event.target.checked &&
-      checkedItems.includes(event.target.value) === false
-    ) {
-      updatedEmployeeType = [...checkedItems, event.target.value]
-    } else {
-      updatedEmployeeType = checkedItems.filter(
-        item => item !== event.target.value,
-      )
-    }
-    this.setState({activeEmployeeType: updatedEmployeeType}, this.getJobsList)
-  }
+    const { activeEmployeeType } = this.state;
+    const gotType = event.target.value;
 
+    // Check if the type is already present in the array
+    const isTypeActive = activeEmployeeType.includes(gotType);
+
+    this.setState(
+        prevState => ({
+            activeEmployeeType: isTypeActive
+                ? prevState.activeEmployeeType.filter(type => type !== gotType)
+                : [...prevState.activeEmployeeType, gotType]
+        }),this.getJobsList );
+};
+  
   onChangeSalaryRange = event => {
     this.setState({activeSalaryRange: event.target.value}, this.getJobsList)
   }
 
   onChangeLocation = event => {
-    const {checkedItems} = this.state
-    if (event.target.checked) {
-      const updatedLocation = [...checkedItems, event.target.value].join(',')
-      this.setState({activeLocation: updatedLocation}, this.getJobsList)
-    } else {
-      const normalChecked = checkedItems
-        .filter(item => item !== event.target.value)
-        .join(',')
-      this.setState({activeLocation: normalChecked}, this.getJobsList)
-    }
-  }
+    const { activeLocation } = this.state;
+    const gotType = event.target.value;
+
+    // Check if the type is already present in the array
+    const isTypeActive = activeLocation.includes(gotType);
+
+    this.setState(
+        prevState => ({
+            activeLocation: isTypeActive
+                ? prevState.activeLocation.filter(type => type !== gotType)
+                : [...prevState.activeLocation, gotType]
+        }),this.getJobsList);
+};
+
 
   clickedSearch = () => {
     this.getJobsList()
@@ -177,8 +179,10 @@ class Jobs extends Component {
       activeSalaryRange,
       activeEmployeeType,
       activeLocation,
-    } = this.state
-    const url = `https://apis.ccbp.in/jobs?employment_type=PARTTIME,FULLTIME&minimum_package=${activeSalaryRange}&location=HYDERABAD,CHENNAI&search=${searchInput}`
+    } = this.state 
+    const employeeTypeString=activeEmployeeType.join(',')
+    const locationString=activeLocation.join(',')
+    const url = `https://apis.ccbp.in/jobs?employment_type=${employeeTypeString}&minimum_package=${activeSalaryRange}&location=${locationString}&search=${searchInput}`
     const jwtToken = Cookies.get('jwt_token')
     const options = {
       method: 'GET',
