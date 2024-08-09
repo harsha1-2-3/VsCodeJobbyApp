@@ -471,6 +471,7 @@ class Jobs extends Component {
                       className="filterInput"
                       type="radio"
                       value={each.locationId}
+                      name="location"
                     />
                     <label className="filterLabel" htmlFor={each.locationId}>
                       {each.label}
